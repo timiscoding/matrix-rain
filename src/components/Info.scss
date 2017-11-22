@@ -1,0 +1,27 @@
+@import "shared.scss";
+
+.info {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: white;
+  background-color: rgba(120, 120, 120, 0.75);
+  border-radius: 10px;
+  padding: 5px;
+  height: $info-panel-height;
+
+  &-table {
+    display: inline-block;
+    margin: 5px;
+  }
+}
+
+.divider {
+  display: inline-block;
+  height: 100%;
+  width: 2px;
+  background-color: darkgrey;
+  margin: 0 5px;
+}
