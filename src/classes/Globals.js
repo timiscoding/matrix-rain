@@ -6,4 +6,6 @@ const updateFontSize = size => font_size = size;
 let p;
 const setP5Instance = pInstance => p = pInstance;
 
-export { p, _, font_size, updateFontSize, setP5Instance };
+const max_active_raindrops = 40;
+
+export { p, _, font_size, updateFontSize, setP5Instance, max_active_raindrops };

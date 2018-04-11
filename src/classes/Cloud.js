@@ -1,5 +1,5 @@
 import Raindrop from './Raindrop';
-import { p, _, font_size } from './Globals';
+import { p, _, font_size, max_active_raindrops } from './Globals';
 
 /* Cloud renders Raindrop instances across the window. By supplying text,
 it can display phrases as long as the text can be shown within the window.
@@ -13,6 +13,7 @@ export default class Cloud {
     this.textColor = color;
     this.curTextOrder = []; // text falling from middle
     this.textOrder = []; // text falling into middle
+    this.activeRaindrops = {};
   }
 
   static get size() {
@@ -53,6 +54,7 @@ export default class Cloud {
 
   addRaindrop(col) {
     if (!this.raindrops.get(col)) {
+      this.activeRaindrops[col] = true;
       this.raindrops.set(col, new Raindrop({
         x: font_size * col,
         y: 0,
@@ -80,7 +82,7 @@ export default class Cloud {
     this.textTimer();
 
     if (p.millis() > this.newRaindropTime) {
-      if (this.raindrops.size < Cloud.size) {
+      if (this.raindrops.size < Cloud.size && Object.keys(this.activeRaindrops).length < max_active_raindrops) {
         const prob = { textOut: 0.4, textIn: 0.7 };
         const rand = _.random(true);
 
@@ -102,6 +104,7 @@ export default class Cloud {
 
             this.raindrops.get(col).middleLetter = '';
             this.curText[col] = null;
+            this.activeRaindrops[col] = true;
           }
         } else if (rand < prob.textIn) {
           if (this.textOrder.length > 0) {
@@ -131,10 +134,12 @@ export default class Cloud {
   }
 
   removeRaindrop(col) {
+    delete this.activeRaindrops[col];
     this.raindrops.delete(col);
   }
 
   stoppedRaindrop(col) {
+    delete this.activeRaindrops[col];
     var middleLetter = this.getMiddleLetter[col];
     this.curText[col] = middleLetter;
   }

@@ -39,7 +39,7 @@ export default class DebugMatrix {
 
     const scene = _.get(this, ['matrix', 'scenes', this.matrix.sceneNum]);
     const sceneName = _.get(scene, 'name');
-    const raindropCount = this.matrix.cloud.raindrops.size;
+    const raindropCount = Object.keys(this.matrix.cloud.activeRaindrops).length;
 
     const { state, frames, stats } = _.get(this, 'matrix.bench');
     p.reactProps.onNewStats({
