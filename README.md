@@ -6,6 +6,7 @@ This experiment recreates the opening scene from the movie [The Matrix](http://w
 
 [Codepen demo](https://codepen.io/timiscoding/project/full/ZjNNOk/)
 
+### Development build
 To build it locally, run
 ```
 yarn
@@ -21,7 +22,21 @@ npm start
 
 then open `http://localhost:3000/` in the browser.
 
+###  Production build
 
+```
+npm run build
+npm run serve
+```
+
+or
+
+```
+yarn build
+yarn serve
+```
+
+then navigate to the link provided.
 ## Evolution
 
 This experiment began after completing the [Natural Simulations in Processing course](https://www.khanacademy.org/computing/computer-programming/programming-natural-simulations) on Khan Academy. Originally I used the in-browser editor but I wanted to use ES6 so I moved onto codepen. [See attempt 1](https://www.khanacademy.org/computer-programming/matrix-digital-rain/5236099278110720)
