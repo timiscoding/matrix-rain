@@ -8,12 +8,6 @@ This experiment recreates the opening scene from the movie [The Matrix](http://w
 
 ### Development build
 To build it locally, run
-```
-yarn
-yarn start
-```
-
-or
 
 ```
 npm i
@@ -22,18 +16,14 @@ npm start
 
 then open `http://localhost:3000/` in the browser.
 
+Note: There are performance issues in dev build because of the unminified p5 lib. This can be alleviated by using the minified version at the cost of less meaningful debugging messages. See [P5Wrapper.js](https://github.com/timiscoding/matrix-rain/blob/master/src/components/P5Wrapper.js)
+
 ###  Production build
 
 ```
+npm i
 npm run build
 npm run serve
-```
-
-or
-
-```
-yarn build
-yarn serve
 ```
 
 then navigate to the link provided.
