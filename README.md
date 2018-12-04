@@ -4,7 +4,7 @@ This experiment recreates the opening scene from the movie [The Matrix](http://w
 
 ## Demo
 
-[Codepen demo](https://codepen.io/timiscoding/project/full/ZjNNOk/)
+[Codepen demo](https://codepen.io/timiscoding/pen/RjgxoY)
 
 ### Development build
 To build it locally, run
